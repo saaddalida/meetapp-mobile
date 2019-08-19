@@ -1,8 +1,10 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {Image} from 'react-native';
 import PropTypes from 'prop-types';
+import {useDispatch} from 'react-redux';
 
 import Background from '~/components/Background';
+import {signInRequest} from '~/store/modules/auth/actions';
 
 import logo from '~/assets/logo.png';
 import {
@@ -15,9 +17,15 @@ import {
 } from './styles';
 
 export default function SignIn({navigation}) {
+  const dispatch = useDispatch();
   const passwordRef = useRef();
 
-  function handleSubmit() {}
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function handleSubmit() {
+    dispatch(signInRequest(email, password));
+  }
 
   return (
     <Background>
@@ -30,6 +38,8 @@ export default function SignIn({navigation}) {
             autoCapitalize="none"
             placeholder="Digite seu email"
             returnKeyType="next"
+            value={email}
+            onChangeText={setEmail}
             onSubmitEditing={() => passwordRef.current.focus()}
           />
 
@@ -38,6 +48,8 @@ export default function SignIn({navigation}) {
             placeholder="Digite sua senha"
             ref={passwordRef}
             returnKeyType="send"
+            value={password}
+            onChangeText={setPassword}
             onSubmitEditing={handleSubmit}
           />
 

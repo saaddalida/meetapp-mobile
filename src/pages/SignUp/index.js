@@ -1,8 +1,10 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {Image} from 'react-native';
 import PropTypes from 'prop-types';
+import {useDispatch} from 'react-redux';
 
 import Background from '~/components/Background';
+import {signUpRequest} from '~/store/modules/auth/actions';
 
 import logo from '~/assets/logo.png';
 import {
@@ -15,10 +17,17 @@ import {
 } from './styles';
 
 export default function SignUp({navigation}) {
+  const dispatch = useDispatch();
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  function handleSubmit() {}
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function handleSubmit() {
+    dispatch(signUpRequest(name, email, password));
+  }
 
   return (
     <Background>
@@ -30,6 +39,8 @@ export default function SignUp({navigation}) {
             autoCapitalize="none"
             placeholder="Nome completo"
             returnKeyType="next"
+            value={name}
+            onChangeText={setName}
             onSubmitEditing={() => emailRef.current.focus()}
           />
 
@@ -39,6 +50,8 @@ export default function SignUp({navigation}) {
             autoCapitalize="none"
             placeholder="Digite seu email"
             ref={emailRef}
+            value={email}
+            onChangeText={setEmail}
             returnKeyType="next"
             onSubmitEditing={() => passwordRef.current.focus()}
           />
@@ -48,6 +61,8 @@ export default function SignUp({navigation}) {
             placeholder="Digite sua senha"
             ref={passwordRef}
             returnKeyType="send"
+            value={password}
+            onChangeText={setPassword}
             onSubmitEditing={handleSubmit}
           />
 
