@@ -12,7 +12,7 @@ import {
   SubscribeButton,
 } from './styles';
 
-export default function Meetup({data}) {
+export default function Meetup({data, onSubscribe}) {
   return (
     <Container past={data.past}>
       {data.File.url ? (
@@ -31,7 +31,7 @@ export default function Meetup({data}) {
         </Info>
         <Info>
           <Icon name="event" size={14} color="#999" />
-          <InfoText>{data.formattedDate}</InfoText>
+          <InfoText>{data.date}</InfoText>
         </Info>
         <Info>
           <Icon name="place" size={14} color="#999" />
@@ -42,7 +42,9 @@ export default function Meetup({data}) {
           <InfoText>{data.User.name}</InfoText>
         </Info>
 
-        <SubscribeButton>Realizar inscrição</SubscribeButton>
+        <SubscribeButton onPress={onSubscribe}>
+          Realizar inscrição
+        </SubscribeButton>
       </Content>
     </Container>
   );
