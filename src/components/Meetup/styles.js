@@ -4,13 +4,14 @@ import Button from '~/components/Button';
 export const Container = styled.View`
   flex: 1;
   background-color: #fff;
-  margin-top: 10px;
+  margin: 15px 0;
+  border-radius: 4px;
+  opacity: ${props => (props.past ? 0.8 : 1)};
 `;
 
 export const MeetupImage = styled.Image`
-  width: auto;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  height: 150px;
+  width: 100%;
   margin-bottom: 15px;
 `;
 
@@ -33,8 +34,6 @@ export const Details = styled.View`
 
 export const Info = styled.View`
   flex-direction: row;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
   align-items: center;
 `;
 

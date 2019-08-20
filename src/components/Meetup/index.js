@@ -14,11 +14,12 @@ import {
 
 export default function Meetup({data}) {
   return (
-    <Container>
+    <Container past={data.past}>
       {data.File.url ? (
         <MeetupImage
           source={{
-            uri: 'https://api.adorable.io/avatars/244/abott@adorable.png',
+            uri:
+              'https://www.austrianstartups.com/wp-content/uploads/2017/12/react.jpg',
           }}
           resizeMode="cover"
         />
@@ -29,9 +30,11 @@ export default function Meetup({data}) {
           <Title>{data.title}</Title>
         </Info>
         <Info>
-          <InfoText>25 de novembro</InfoText>
+          <Icon name="event" size={14} color="#999" />
+          <InfoText>{data.formattedDate}</InfoText>
         </Info>
         <Info>
+          <Icon name="place" size={14} color="#999" />
           <InfoText>{data.location}</InfoText>
         </Info>
         <Info>
