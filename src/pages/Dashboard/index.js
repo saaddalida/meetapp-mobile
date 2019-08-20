@@ -1,6 +1,5 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import PropTypes from 'prop-types';
 
 import Background from '~/components/Background';
 // import { Container } from './styles';
