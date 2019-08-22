@@ -12,7 +12,7 @@ This application have five screens: Authentication, SignUp, Dashboard, Subscript
 
 ### Running application
 
-To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [Yarn v1.13][yarn] or higher installed on your computer and the [MeetApp API](https://github.com/saaddalida/meetapp-backend). From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v10.16][https://nodejs.org] or higher + [Yarn v1.13][https://yarnpkg.com/en/] or higher installed on your computer and the [MeetApp API](https://github.com/saaddalida/meetapp-backend). From your command line:
 
 ```bash
 # Clone this repository
