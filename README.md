@@ -8,7 +8,7 @@ This application will be used by meetup subscribers and will not have meetup org
 
 ![Meetapp](demo.gif)
 
-This application have five screens: Authentication, SignUp, Dashboard, Subscriptions and Profile
+This application have five screens: Authentication, SignUp, Dashboard, Subscriptions and Profile.
 
 ### Running application
 
@@ -44,3 +44,11 @@ $ react-native run-android
 - [date-fns](https://date-fns.org/)
 - [Reactotron](https://infinite.red/reactotron)
 - [VSCode](https://code.visualstudio.com/)
+
+## Authors
+
+- **Dalida Saad** - [Twitter](https://twitter.com/dalida_saad)
+
+## License
+
+This project is licensed under the MIT License.
