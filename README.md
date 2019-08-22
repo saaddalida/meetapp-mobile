@@ -33,7 +33,7 @@ $ react-native run-android
 
 ## Built With
 
-- [ReactJS](https://reactjs.org/)
+- [React Native](https://facebook.github.io/react-native/)
 - [Redux](https://redux.js.org/)
 - [Redux-Saga](https://github.com/redux-saga/redux-saga)
 - [styled-components](https://www.styled-components.com/)
