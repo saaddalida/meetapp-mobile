@@ -47,7 +47,7 @@ $ react-native run-android
 
 ## Authors
 
-- **Dalida Saad** - [Twitter](https://twitter.com/dalida_saad)
+- **Dalida Saad** - :wave: [Get in touch!](https://www.linkedin.com/in/dalida-saad/)
 
 ## License
 
