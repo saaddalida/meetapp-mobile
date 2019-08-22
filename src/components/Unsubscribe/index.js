@@ -14,15 +14,18 @@ import {
   ItemButton,
 } from './styles';
 
-export default function Meetup({data, onSubscribe}) {
+export default function Unsubscribe({data, onCancel}) {
   const dateFormatted = useMemo(
-    () => format(parseISO(data.date), "dd 'de' MMMM 'de' yyyy", {locale: pt}),
-    [data.date],
+    () =>
+      format(parseISO(data.Meetup.date), "dd 'de' MMMM 'de' yyyy", {
+        locale: pt,
+      }),
+    [data.Meetup.date],
   );
 
   return (
-    <Container past={data.past}>
-      {data.File.url ? (
+    <Container past={data.Meetup.past}>
+      {data.Meetup.File.url ? (
         <MeetupImage
           source={{
             uri:
@@ -34,7 +37,7 @@ export default function Meetup({data, onSubscribe}) {
 
       <Content>
         <Info>
-          <Title>{data.title}</Title>
+          <Title>{data.Meetup.title}</Title>
         </Info>
         <Info>
           <Icon name="event" size={14} color="#999" />
@@ -42,35 +45,37 @@ export default function Meetup({data, onSubscribe}) {
         </Info>
         <Info>
           <Icon name="place" size={14} color="#999" />
-          <InfoText>{data.location}</InfoText>
+          <InfoText>{data.Meetup.location}</InfoText>
         </Info>
         <Info>
           <Icon name="person" size={14} color="#999" />
-          <InfoText>{data.User.name}</InfoText>
+          <InfoText>{data.Meetup.User.name}</InfoText>
         </Info>
 
-        <ItemButton onPress={onSubscribe}>Realizar inscrição</ItemButton>
+        <ItemButton onPress={onCancel}>Cancelar inscrição</ItemButton>
       </Content>
     </Container>
   );
 }
 
-Meetup.propTypes = {
+Unsubscribe.propTypes = {
   data: PropTypes.shape({
-    date: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    location: PropTypes.string.isRequired,
-    past: PropTypes.bool.isRequired,
-    User: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }),
-    File: PropTypes.shape({
-      url: PropTypes.string.isRequired,
-    }),
+    Meetup: PropTypes.shape({
+      date: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      location: PropTypes.string.isRequired,
+      past: PropTypes.bool,
+      User: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+      }),
+      File: PropTypes.shape({
+        url: PropTypes.string.isRequired,
+      }),
+    }).isRequired,
   }).isRequired,
-  onSubscribe: PropTypes.func,
+  onCancel: PropTypes.func,
 };
 
-Meetup.defaultProps = {
-  onSubscribe: null,
+Unsubscribe.defaultProps = {
+  onCancel: null,
 };

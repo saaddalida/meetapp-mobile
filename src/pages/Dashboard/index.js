@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import PropTypes from 'prop-types';
 import {Alert} from 'react-native';
+import {withNavigationFocus} from 'react-navigation';
 
 import Background from '~/components/Background';
 import Meetup from '~/components/Meetup';
@@ -9,7 +11,7 @@ import api from '~/services/api';
 
 import {Container, List, EmptyList, EmptyView, TextEmpty} from './styles';
 
-export default function Dashboard() {
+function Dashboard({isFocused}) {
   const [meetups, setMeetups] = useState([]);
   const [date, setDate] = useState(new Date());
 
@@ -22,8 +24,10 @@ export default function Dashboard() {
       setMeetups(response.data);
     }
 
-    loadMeetups();
-  }, [date]);
+    if (isFocused) {
+      loadMeetups();
+    }
+  }, [date, isFocused]);
 
   async function handleSubscribe(id) {
     try {
@@ -64,9 +68,21 @@ export default function Dashboard() {
   );
 }
 
-Dashboard.navigationOptions = {
-  tabBarLabel: 'Meetups',
-  tabBarIcon: ({tintColor}) => (
-    <Icon name="format-list-bulleted" size={20} color={tintColor} />
-  ),
+const tabBarIcon = ({tintColor}) => (
+  <Icon name="format-list-bulleted" size={20} color={tintColor} />
+);
+
+Dashboard.propTypes = {
+  isFocused: PropTypes.bool.isRequired,
 };
+
+tabBarIcon.propTypes = {
+  tintColor: PropTypes.string.isRequired,
+};
+
+Dashboard.navigationOptions = {
+  tabBarLabel: 'Inscrições',
+  tabBarIcon,
+};
+
+export default withNavigationFocus(Dashboard);
