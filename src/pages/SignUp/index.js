@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import {Image} from 'react-native';
+import {Image, Alert} from 'react-native';
 import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux';
 
@@ -27,6 +27,11 @@ export default function SignUp({navigation}) {
 
   function handleSubmit() {
     dispatch(signUpRequest(name, email, password));
+
+    setEmail('');
+    setName('');
+    setPassword('');
+    Alert.alert('Sucesso', 'Criação de usuário realizada!');
   }
 
   return (
