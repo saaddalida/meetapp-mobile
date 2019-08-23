@@ -28,8 +28,7 @@ export default function Unsubscribe({data, onCancel}) {
       {data.Meetup.File.url ? (
         <MeetupImage
           source={{
-            uri:
-              'https://www.austrianstartups.com/wp-content/uploads/2017/12/react.jpg',
+            uri: data.Meetup.File.url
           }}
           resizeMode="cover"
         />
