@@ -25,8 +25,7 @@ export default function Meetup({data, onSubscribe}) {
       {data.File.url ? (
         <MeetupImage
           source={{
-            uri:
-              'https://www.austrianstartups.com/wp-content/uploads/2017/12/react.jpg',
+            uri: data.File.url
           }}
           resizeMode="cover"
         />
